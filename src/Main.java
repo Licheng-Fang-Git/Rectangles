@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.awt.geom.Rectangle2D;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -11,7 +12,7 @@ public class Main {
         double count  = 0;
 
         for (int i = 0; i < 1000000; i++){
-            Rectangle checkingR  = new Rectangle(randomNumber(), randomNumber(), randomLength(), randomWidth());
+            Rectangle checkingR  = new Rectangle(randomNumber() , randomNumber() , randomLength() , randomWidth());;
             if(collidesYesNo(checkingR)){
                 collides.add(checkingR);
             }
@@ -19,15 +20,13 @@ public class Main {
 
         double divide =  (double) collides.size() /1000000;
         System.out.println("Percentage: " + divide * 100);
-
     }
 
     public static boolean collidesYesNo (Rectangle checkingR){
         if((checkingR.getxTopLeft() >= 10 &&  checkingR.getxTopLeft() <= 30) &&
-            (checkingR.getyTopLeft() >= 5 &&  checkingR.getyTopLeft() <= 15)){
+            (checkingR.getyTopLeft() >= 5 &&  checkingR.getyTopLeft() <= 15) ) {
             return true;
         }
-
         if((checkingR.getxTopRight() >= 10 &&  checkingR.getxTopRight() <= 30) &&
                 (checkingR.getyTopRight() >= 5 &&  checkingR.getyTopRight() <= 15))  {
             return true;
@@ -35,15 +34,21 @@ public class Main {
 
         if((checkingR.getxBottomLeft() >= 10 &&  checkingR.getxBottomLeft() <= 30) &&
                 ( checkingR.getyBottomLeft() >= 5 &&  checkingR.getyBottomLeft() <= 15)){
+
             return true;
         }
 
         if(( checkingR.getxBottomRight() >= 10 &&  checkingR.getxBottomRight() <= 30) &&
             (checkingR.getyBottomRight() >= 5 &&  checkingR.getyBottomRight() <= 15)){
+
             return true;
         }
 
         return false;
+    }
+
+    public static boolean collides(Rectangle2D r1, Rectangle2D r2) {
+        return r1.intersects(r2);
     }
 
     public static int randomNumber(){
