@@ -33,7 +33,7 @@ public class Main {
         }
 
         if((checkingR.getxBottomLeft() >= 10 &&  checkingR.getxBottomLeft() <= 30) &&
-                ( checkingR.getyBottomLeft() >= 5 &&  checkingR.getyBottomLeft() <= 15)){
+                (checkingR.getyBottomLeft() >= 5 &&  checkingR.getyBottomLeft() <= 15)){
 
             return true;
         }
@@ -41,6 +41,11 @@ public class Main {
         if(( checkingR.getxBottomRight() >= 10 &&  checkingR.getxBottomRight() <= 30) &&
             (checkingR.getyBottomRight() >= 5 &&  checkingR.getyBottomRight() <= 15)){
 
+            return true;
+        }
+
+        if (( 10 >= checkingR.getxTopLeft() && 30 <= checkingR.getxTopRight() ) &&
+            (5 >= checkingR.getyBottomLeft() && 15 >= checkingR.getyTopRight())){
             return true;
         }
 
